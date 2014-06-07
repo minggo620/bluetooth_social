@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:background="@color/white">
+	<include layout="@layout/myphoto_selected_title" android:id="@+id/include1" />
+	<EditText android:id="@+id/myphoto_desc_ev"
+		android:layout_height="wrap_content" 
+		android:singleLine="true" android:background="@drawable/chat_editor_xml"
+		android:layout_width="fill_parent" android:layout_below="@+id/include1"
+		android:layout_centerHorizontal="true" android:layout_margin="10dp"
+		android:hint="@string/record_myphoto_desc">
+
+	</EditText>
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_height="100dp" android:layout_width="wrap_content"
+		android:layout_alignLeft="@+id/myphoto_desc_ev"
+		android:layout_alignRight="@+id/myphoto_desc_ev" android:layout_below="@+id/myphoto_desc_ev"
+		android:background="@drawable/app_msg_item_source_to_nor">
+		<ImageView android:layout_height="95dp" android:scaleType="fitXY"
+			android:layout_width="95dp" android:id="@+id/myphoto_add_iv"
+			android:src="@drawable/mywife" android:layout_centerVertical="true"
+			android:layout_alignParentLeft="true" android:layout_margin="5dp"></ImageView>
+		<Button android:id="@+id/myphoto_add_bt" android:layout_height="wrap_content"
+			android:background="@drawable/myphoto_more_button_xml"
+			android:padding="5dp" android:layout_width="wrap_content"
+			android:layout_centerVertical="true" android:layout_toRightOf="@+id/myphoto_add_iv"></Button>
+
+	</RelativeLayout>
+</RelativeLayout>

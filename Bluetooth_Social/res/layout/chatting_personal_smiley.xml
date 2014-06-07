@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="#00000000" >
+		 <TableLayout 
+		    android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" > 
+		    <TableRow android:gravity="center_horizontal" > 
+				<Button android:id="@+id/chatting_bt_simly"  android:background="@drawable/chatting_send_simly_xml" android:layout_marginTop="10dp" android:layout_marginRight="5dp"/>
+				<Button android:id="@+id/chatting_bt_pic" android:background="@drawable/chatting_send_pic_xml" android:layout_marginTop="10dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" />
+				<Button android:id="@+id/chatting_bt_vedio" android:background="@drawable/chatting_send_video_xml" android:layout_marginTop="10dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+		    	<Button android:id="@+id/chatting_bt_location" android:background="@drawable/chatting_send_location_xml" android:layout_marginTop="10dp" android:layout_marginLeft="5dp"/>
+		 
+		    </TableRow> 
+		    <TableRow android:gravity="center_horizontal"> 
+				<TextView android:text="表情" android:gravity="center_horizontal"/>
+				<TextView android:text="图片" android:gravity="center_horizontal"/>
+				<TextView android:text="视频" android:gravity="center_horizontal"/>
+				<TextView android:text="位置" android:gravity="center_horizontal"/>
+		    </TableRow> 
+		    <TableRow android:gravity="center_horizontal" > 
+				<Button android:id="@+id/chatting_bt_card"  android:background="@drawable/chatting_send_card_xml" android:layout_marginTop="10dp" android:layout_marginRight="5dp"/>
+				<Button android:id="@+id/chatting_bt_pic" android:background="@drawable/myphoto_more_button_xml" android:layout_marginTop="10dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" />
+		    	<Button android:background="#00000000"/>
+				<Button android:background="#00000000"/>
+		    	
+		    </TableRow>
+		    <TableRow android:gravity="center_horizontal"> 
+				<TextView android:text="名片" android:gravity="center_horizontal" />
+				<TextView android:text="" android:gravity="center_horizontal"/>
+				<TextView android:text="" android:gravity="center_horizontal"/>
+				<TextView android:text="" android:gravity="center_horizontal"/>
+				
+		    </TableRow> 
+		</TableLayout> 
+</LinearLayout>

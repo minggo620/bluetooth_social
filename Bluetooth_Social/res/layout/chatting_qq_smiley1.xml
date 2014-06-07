@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  
+  >
+<!-- 		 android:horizontalSpacing="10dp" -->
+<!--         android:verticalSpacing="10dp"  -->
+		<GridView
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:numColumns="8"
+	        android:listSelector="@drawable/chatting_smiley_by_item_xml"
+	        style="@style/listViewStyle"
+	        android:id="@+id/expression_gridview"
+	        android:gravity="center"  
+	        android:stretchMode="columnWidth"
+        />
+</LinearLayout>

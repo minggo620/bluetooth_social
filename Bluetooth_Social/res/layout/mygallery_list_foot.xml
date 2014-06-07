@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="wrap_content" android:id="@+id/myphoto_layout_middle"
+	android:background="@color/white" android:paddingLeft="5dip"
+	android:paddingTop="10dip" android:paddingRight="5dip"
+	android:paddingBottom="10dip">
+	<ImageView android:src="@drawable/personactivity_end_line"
+	android:id="@+id/mygallery_iv_end_line" android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true" android:layout_width="match_parent"
+	android:layout_height="wrap_content"></ImageView>
+
+</LinearLayout>

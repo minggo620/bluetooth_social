@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:background="#00000000" >
+		 <TableLayout 
+		    android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" android:layout_marginTop="5dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp"> 
+		    <TableRow android:gravity="center_horizontal" > 
+				<ImageView android:src="@drawable/smiley_0" style="@style/ChattingSmileyItem" />
+				<ImageView android:src="@drawable/smiley_1" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_2" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_3" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_4" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_5" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_6" style="@style/ChattingSmileyItem" />
+				<ImageView android:src="@drawable/smiley_7" style="@style/ChattingSmileyItem"/>
+			</TableRow> 
+		    <TableRow android:gravity="center_horizontal" > 
+				
+				<ImageView android:src="@drawable/smiley_8" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_9" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_10" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_11" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_12" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_13" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_14" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_15" style="@style/ChattingSmileyItem"/>
+		    </TableRow> 
+		    <TableRow android:gravity="center_horizontal" > 
+				
+				<ImageView android:src="@drawable/smiley_16" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_17" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_18" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_19" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_20" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_21" style="@style/ChattingSmileyItem"/>
+				<ImageView android:src="@drawable/smiley_22" style="@style/ChattingSmileyItem"/>
+				<Button android:layout_weight="2" android:background="@drawable/chatting_smiley_delete_xml"  
+					android:layout_marginTop="10dp" android:layout_marginRight="5dp" android:layout_marginLeft="5dp"></Button>
+		    </TableRow> 
+		</TableLayout> 
+</LinearLayout>

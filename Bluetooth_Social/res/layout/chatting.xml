@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/chat_bg_default" >
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/title_bar"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/title_btn_back"
+            android:text="返回"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/chatting_tv_friendname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="minggo"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/right_btn"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/title_btn_right"
+            android:src="@drawable/mm_title_btn_contact_normal" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/chat_footer_bg" >
+
+            <Button
+                android:id="@+id/chat_btn_send"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/chat_send_btn"
+                android:text="发送"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/chat_et_sendmessage"
+                style="@style/editStyle4"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="90dp"
+                android:layout_toLeftOf="@+id/chat_btn_send"
+                android:background="@drawable/login_edit_normal"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/chat_bt_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/chat_add_bt_xml" />
+
+            <Button
+                android:id="@+id/chat_bt_voice"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/chat_et_sendmessage"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/chat_voice_bt_xml" />
+
+            <Button
+                android:id="@+id/chat_bt_keyboard"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/chat_et_sendmessage"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/chat_keyboard_bt_xml"
+                android:visibility="gone" />
+
+            <edu.minggo.chat.util.RecordButton
+                android:id="@+id/chat_bt_send_voice"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/chat_bt_add"
+                android:background="@drawable/chat_send_btn"
+                android:text="按住 说话"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TableLayout
+            android:id="@+id/chatting_add_v_menu"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/app_panel_bg"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TableRow android:gravity="center_horizontal" >
+
+                <ImageView
+                    android:id="@+id/chatting_bt_simly"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/chatting_send_simly_xml"
+                    android:src="@drawable/sharemore_expression_icon" />
+
+                <Button
+                    android:id="@+id/chatting_bt_pic"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/chatting_send_pic_xml" />
+
+                <Button
+                    android:id="@+id/chatting_bt_location"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/chatting_send_location_xml" />
+
+                <Button
+                    android:id="@+id/chatting_bt_card"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/chatting_send_card_xml" />
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal" >
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="表情" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="图片" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="位置" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="名片" />
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/chatting_bt_pic"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="19dp"
+                    android:background="@drawable/myphoto_more_button_xml" />
+
+                <Button android:background="#00000000" />
+
+                <Button android:background="#00000000" />
+
+                <Button android:background="#00000000" />
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal" >
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="等待" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="" />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/chatting_smiley_v"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/smiley_panel_bg"
+                android:orientation="vertical" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/chatting_expression_tabpager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="147dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:id="@+id/chatting_smiley_leader_v"
+                    android:layout_width="fill_parent"
+                    android:layout_height="13dp"
+                    android:layout_above="@+id/chatting_page_bottom"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_horizontal" >
+
+                    <ImageView
+                        android:id="@+id/page0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="matrix"
+                        android:src="@drawable/white_dot" >
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/page1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="matrix"
+                        android:src="@drawable/dark_dot" >
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/page2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="matrix"
+                        android:src="@drawable/dark_dot" >
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/page3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="matrix"
+                        android:src="@drawable/dark_dot" >
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/page4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="matrix"
+                        android:src="@drawable/dark_dot" >
+                    </ImageView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chatting_page_bottom"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:background="#000" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/chatting_qq_smiley_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/smiley_tab_pressed"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="QQ表情"
+                        android:textColor="#fff"
+                        android:textSize="12sp" >
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/chatting_char_smiley_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/smiley_tab_nor"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="符号表情"
+                        android:textColor="#fff"
+                        android:textSize="12sp" >
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/chatting_personal_smiley_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/smiley_tab_nor"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="自定义表情"
+                        android:textColor="#fff"
+                        android:textSize="12sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/chatting_message_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/rl_bottom"
+        android:layout_below="@id/rl_layout"
+        android:cacheColorHint="#0000"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:stackFromBottom="false" />
+
+</RelativeLayout>

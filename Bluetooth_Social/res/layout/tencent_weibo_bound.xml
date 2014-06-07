@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    >
+    <RelativeLayout android:layout_height="45dp"
+	android:gravity="center_vertical" android:layout_width="fill_parent"
+	android:background="@drawable/title_bar" android:id="@+id/title">
+	<Button android:textSize="14sp" 
+		android:text="返回" android:layout_width="70dp" android:id="@+id/weibo_reback_btn"
+		android:layout_centerVertical="true" android:background="@drawable/title_btn_back"
+		android:textColor="#fff" android:layout_height="wrap_content"></Button>
+	<TextView android:textSize="20sp" android:layout_width="wrap_content"
+		android:text="绑定微博" android:textColor="#ffffff"
+		android:layout_centerInParent="true" android:layout_height="wrap_content"></TextView>
+	</RelativeLayout>
+	<RelativeLayout android:layout_width="match_parent" android:layout_margin="15dp" android:layout_height="366dp">
+        <TextView android:id="@+id/response_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+			    android:textColor="#FFFFFF"
+			    android:typeface="normal"/>
+	<Button android:background="@drawable/btn_style_red"
+	android:text="取消绑定微博" android:id="@+id/btn_cancel" android:layout_width="match_parent"
+	android:textColor="#ffffff" android:layout_height="40dp"
+	android:textSize="18sp" android:layout_below="@+id/btn_bound"
+	android:layout_alignParentLeft="true" android:layout_marginTop="15dp"></Button>
+	<Button android:background="@drawable/btn_style_green"
+	android:text="绑定腾讯微博" android:id="@+id/btn_bound" android:layout_width="match_parent"
+	android:textColor="#ffffff" android:layout_height="40dp"
+	android:textSize="18sp" android:layout_below="@+id/response_code"
+	android:layout_alignParentLeft="true" android:layout_marginTop="83dp"></Button>
+	<TextView android:id="@+id/textView1" android:text="绑定微博后你就就可以随时发微薄啦！"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:layout_below="@+id/response_code" android:textSize="16dp"
+	android:layout_centerHorizontal="true" android:layout_marginTop="32dp"></TextView>    
+	</RelativeLayout>                  
+</LinearLayout>

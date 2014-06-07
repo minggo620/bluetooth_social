@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:background="#eee" android:orientation="vertical">
+	<TextView android:id="@+id/contactitem_catalog"
+		android:paddingRight="4.0dip" android:layout_height="wrap_content"
+		style="@style/MMListCatalog" />
+	<RelativeLayout android:layout_width="match_parent"
+	    android:id="@+id/forHeigh"
+		android:gravity="center_vertical" android:background="@drawable/mm_listitem"
+		android:layout_height="60dp">
+		<ImageView android:id="@+id/head" android:layout_width="55dp"
+			android:paddingLeft="5dp" android:src="@drawable/xiaohei"
+			android:layout_height="55dp" android:layout_alignBottom="@+id/username"
+			android:layout_alignParentLeft="true" android:layout_marginLeft="10dp"></ImageView>
+		<ImageView android:src="@drawable/v" android:saveEnabled="true"
+			android:id="@+id/ivItemV" android:layout_width="wrap_content"
+			android:visibility="visible" android:layout_height="wrap_content"
+			android:layout_alignTop="@+id/head" android:layout_alignRight="@+id/head"></ImageView>
+		<TextView style="@style/feeling_style" android:layout_width="wrap_content"
+			android:background="@drawable/corners" android:layout_height="wrap_content"
+			android:textColor="#949194" android:text="时间就是一切" android:padding="7dp"
+			android:layout_alignTop="@+id/username"
+			android:layout_alignParentRight="true" android:layout_marginRight="25dp" android:id="@+id/motto"></TextView>
+		<TextView android:layout_width="wrap_content" android:id="@+id/username"
+			android:layout_height="wrap_content" android:textColor="#000"
+			android:text="小黑" android:padding="7dp" android:layout_centerVertical="true"
+				android:layout_toRightOf="@+id/head"></TextView>
+	</RelativeLayout>
+
+</LinearLayout>

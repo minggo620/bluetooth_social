@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_width="match_parent" android:id="@+id/address_search"
+		android:layout_height="wrap_content" android:gravity="center"
+		android:background="@drawable/search_bar_bg">
+
+		<EditText android:id="@+id/search_address_ev" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textColor="#000"
+			android:layout_marginLeft="5dp" android:layout_marginRight="25dp"
+			android:focusable="true" android:focusableInTouchMode="true"
+			android:textStyle="bold" android:drawableLeft="@drawable/search_bar_icon_normal"
+			android:background="@drawable/search_bar_edit_bg" android:hint="搜索"
+			android:singleLine="true" android:textSize="13dp" >
+		</EditText>
+		<Button android:id="@+id/search_clear_icon1" android:visibility="gone"
+			android:layout_width="wrap_content" android:background="@drawable/delete_search_button_xml"
+			android:layout_height="wrap_content" android:layout_alignTop="@+id/search_address_ev"
+			android:layout_alignRight="@+id/search_address_ev" android:layout_marginTop="4.5dp"
+			android:layout_marginRight="10dp"/>
+</RelativeLayout>

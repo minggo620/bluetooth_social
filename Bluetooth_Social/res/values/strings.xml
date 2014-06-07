@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">《蓝牙社交软件》</string>
+	
+	<!-- HomeActivity -->
+	<string name="cancel">取消</string>
+	<string name="exit_confirm">确认退出</string>
+	<string name="tittle_back">返回</string>
+	<string name="main_at">\@我</string>
+    <string name="main_comment">评论</string>
+    <string name="main_message">私信</string>
+    <string name="main_home">首页</string>
+    <string name="main_news">信息</string>
+    <string name="main_my_info">我的资料</string>
+    <string name="menu_game">游戏</string>
+    <string name="more">更多</string>
+	 <!--  BluetoothChatActivity -->
+    <string name="send">发送</string>
+    <string name="not_connected">你还没有连接任何设备！</string>
+    <string name="bt_not_enabled_leaving">蓝牙未能启动，不能进行交流！</string>
+    <string name="title_connecting">连接中...</string>
+    <string name="title_connected_to">已连接: </string>
+    <string name="title_not_connected">未连接</string>
+	<string name="back2hid">隐藏</string>
+	
+    <!--  DeviceListActivity -->
+    <string name="scanning">搜索设备...</string>
+    <string name="select_device">选择一个设备连接</string>
+    <string name="none_paired">没有已匹配的设备</string>
+    <string name="none_found">没有发现可匹配设备</string>
+    <string name="title_paired_devices">已匹配的设备</string>
+    <string name="title_other_devices">其他可匹配设备</string>
+    <string name="button_scan">搜索蓝牙设备</string>
+
+    <!-- Options Menu -->
+    <string name="secure_connect">安全方式连接</string>
+    <string name="insecure_connect">非安全方式连接</string>
+    <string name="discoverable">让设备可见</string>
+    <string name="sendpic">发图片</string>
+    <string name="loadinfo">加载中....</string>
+    <string name="refresh">刷新</string>
+    <string name="write_message">写信息</string>
+    <!-- LoginActivity -->
+    <string name="regist">注册</string>
+    <string name="username">账号</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="news">账号列表</string>
+    <string name="welcome">Minggo欢迎您</string>
+    <string name="wifetips">肥妹提示：</string>
+    <string name="logining">正在登录。。。。。。</string>
+    <!-- deleteDailog -->
+    <string name="delete_confirm">确定删除</string>
+    <string name="confirm">确定</string>
+    <string name="no">取消</string>
+    <!-- MyInfoActivity -->
+    <string name="myinfopic">头像</string>
+    <string name="motto">个性签名</string>
+    <string name="myinfo">我的资料</string>
+    <string name="set_myinfo">选择图片</string>
+    <string-array name="set_myinfo_item">
+        <item>照一张吧</item>
+        <item>用本地的</item>
+    </string-array>
+    <!-- ModifyInfoActivity -->
+    <string name="modify_exit">取消</string>
+    <string name="modify_save">保存</string>
+    <string name="modify_title">更新</string>
+    <string name="modify_hobby_tips">篮球怎么样，啪啪啪。。。</string>
+    <string name="modify_introduce_tips">是facebook的创始人?嗯嗯嗯。。。</string>
+    <string name="modify_lognname_tips">这个就别改了吧，呜呜呜。。。</string>
+    <string name="modify_province_tips">你不会是我邻居吧，咦咦咦。。。</string>
+    <string name="modify_phone_tips">电话最直接啦，叽叽叽。。。</string>
+    <string name="modify_age_tips">真的？怎么看起来更年轻，呵呵呵。。。</string>
+    <string name="modify_email_tips">邮箱可能带给你惊喜啦，咔咔咔。。。</string>
+    <string name="modify_name_tips">好名字我会很快记住哦，嘻嘻嘻。。。</string>
+    <string name="modify_motto_tips">原来你这么有个性啊，哈哈哈。。。</string>
+    <string name="sex_male">男</string>
+    <string name="sex_female">女</string>
+    <!-- MoreActivity -->
+    <string name="more_text">更多</string>
+    <!-- AboutActivity -->
+    <string name="about_text">关于LanSi</string>
+     <!-- MyPhotoActivity -->
+    <string name="myphoto_text">我的相册</string>
+    
+    <string name="record_myphoto_text">记录图片</string>
+    <string name="record_myphoto_save">保存</string>
+    <string name="record_myphoto_desc">这一刻的想法</string>
+    
+    <string name="mode_ready">请选择</string>
+    <string name="player_one_lost">红棋赢了</string>
+    <string name="player_two_lost">绿棋赢了</string>
+</resources>

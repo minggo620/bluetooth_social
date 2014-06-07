@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="160dp"
+	android:layout_height="180dp"  android:background="@drawable/loading_bg" android:gravity="center"
+	android:orientation="vertical" android:layout_gravity="center_vertical|center_horizontal">
+
+	
+
+		<LinearLayout android:layout_width="160dp"
+			android:layout_height="115dp" android:gravity="center_horizontal"
+			android:orientation="horizontal" android:id="@+id/linearLayout1" >
+
+			<ImageView android:id="@+id/voice_record_iv_machine"
+				android:src="@drawable/voice_rcd_hint" android:layout_width="50dp"
+				android:layout_height="80dp" android:layout_gravity="bottom" />
+			<ImageView android:id="@+id/voice_record_iv_heigher"
+				android:layout_gravity="bottom" android:layout_height="wrap_content"
+				android:src="@drawable/amp0" android:layout_width="wrap_content"></ImageView>
+
+		</LinearLayout>
+		<LinearLayout android:layout_width="160dp"
+			android:layout_height="65dp" android:gravity="center_horizontal"
+			android:orientation="horizontal" android:id="@+id/linearLayout2">
+		
+			<TextView android:gravity="center_horizontal" android:layout_marginTop="3dp"
+			android:textColor="#fff" android:layout_height="wrap_content"
+			android:id="@+id/textView1" android:textSize="16dp"
+			android:text="正在录音..." android:layout_below="@+id/linearLayout1"
+			android:layout_width="wrap_content"></TextView>
+		</LinearLayout>
+</LinearLayout>

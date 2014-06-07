@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fcfcfc"
+    android:orientation="vertical"
+    >
+    <LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fcfcfc"
+    android:orientation="vertical">
+        <RelativeLayout 
+  			android:layout_width="fill_parent"
+  			android:layout_height="45dp"
+  			android:id="@+id/title" 
+  			android:background="@drawable/title_bar"
+  			android:gravity="center_vertical"  >  
+      		<TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:text="蓝星"
+        		android:layout_centerInParent="true"
+        		android:textSize="20sp"		
+				android:textColor="#ffffff" /> 
+			<ImageButton 
+			    android:id="@+id/right_btn"
+			    android:layout_width="67dp" 
+        		android:layout_height="wrap_content"
+        		android:layout_alignParentRight="true" 
+        		android:layout_centerVertical="true"
+        		android:layout_marginRight="5dp"
+        		android:src="@drawable/title_btn_function"
+				android:background="@drawable/title_btn_right"
+				android:onClick="btnmainright"
+			    />      
+		</RelativeLayout>
+		<ScrollView 
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:scrollbarStyle="outsideOverlay" 
+    		 >
+		<LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+       <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/search_bar_bg" >
+
+            <EditText
+                android:id="@+id/search_lansi_ev0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:drawableLeft="@drawable/search_bar_icon_normal" 
+                android:background="@drawable/search_bar_edit_bg" 
+                android:hint="搜索"
+                android:singleLine="true"
+                android:textSize="13dp"
+                >               
+            </EditText>
+            <Button android:id="@+id/search_clear_icon" 
+			android:layout_width="wrap_content" android:visibility="gone"
+			android:background="@drawable/delete_search_button_xml" android:layout_marginTop="4.5dp"
+			android:layout_height="wrap_content" android:layout_alignTop="@+id/search_lansi_ev0"
+			android:layout_alignRight="@+id/search_lansi_ev0"
+			android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+        
+      	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+			<ListView
+			 	android:id="@+id/main_tab_lansi_listview" 
+			 	android:layout_width="fill_parent" 
+			 	android:divider="@drawable/divider_horizontal_timeline" 
+				android:dividerHeight="1.0dip" 
+				android:scrollbars="none"
+				android:background="#eee" android:layout_height="wrap_content"/>
+		</LinearLayout>
+        </LinearLayout>
+        </ScrollView>
+      </LinearLayout>
+      <include android:id="@+id/progress0" layout="@layout/progress"/> 
+      
+ </RelativeLayout>

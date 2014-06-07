@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#eee" android:orientation="vertical">
+	
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="45dp" android:id="@+id/title"
+		android:background="@drawable/title_bar" android:gravity="center_vertical">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="通讯录"
+			android:layout_centerInParent="true" android:textSize="20sp"
+			android:textColor="#ffffff" android:id="@+id/textView1"/>
+		<Button android:layout_width="67dp" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" android:layout_centerVertical="true"
+			android:layout_marginRight="5dp" android:text="添加" android:textColor="#fff"
+			android:textSize="15dp" android:background="@drawable/title_btn_right" 
+			android:id="@+id/maintab_head_addbt"/>
+		
+	</RelativeLayout>
+	
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+	<ListView
+	 	android:id="@+id/main_tab_address_listview" 
+	 	android:layout_width="fill_parent" 
+		android:dividerHeight="1.0dip" 
+		android:headerDividersEnabled="false"
+		android:scrollbars="none"
+		android:cacheColorHint="@color/touming"
+		android:divider="@drawable/divider_horizontal_timeline"
+		android:background="#eee" android:layout_height="wrap_content"/>
+	</LinearLayout>
+	</LinearLayout>
+	
+	<include android:id="@+id/progress1" layout="@layout/progress"/>
+	<RelativeLayout android:id="@+id/relativeLayout1" 
+	android:layout_height="410dp" android:layout_width="20dp"
+	android:layout_alignParentTop="true" android:layout_marginTop="48dp" android:layout_alignParentRight="true">
+	<edu.minggo.chat.util.SideBar  
+	    android:id ="@+id/sideBar"  
+	    android:layout_height="wrap_content"  
+	    android:layout_width="20dp"  
+	    android:layout_gravity="right|center_vertical"
+	   android:background="@drawable/sldebar_bg_xml"
+	/> 
+	</RelativeLayout>  
+	
+</RelativeLayout>

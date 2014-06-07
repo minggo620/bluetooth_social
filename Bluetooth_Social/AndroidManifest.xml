@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.minggo.chat"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
+    <!-- 定义了application必要这个 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:name=".util.BaiMapGlobalApplication"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/notitle" >
+
+        <!-- 渠道商编号，其中name请不要改，将value修改为渠道商编号。渠道名称请到mtj.baidu.com的渠道管理中修改 -->
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="android_market" />
+        <!-- 您从百度网站获取的APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="e3f94329b8" />
+        <!-- 以下是可选的 -->
+        <!-- 是否开启错误日志统计，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_EXCEPTION_LOG"
+            android:value="true" />
+        
+        <!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
+        <meta-data
+            android:name="BaiduMobAd_SEND_STRATEGY"
+            android:value="APP_START" />
+        <!-- 上面的日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔。取值为1-24（小时）的整数，默认为1 -->
+        <!-- <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="2" /> -->
+        <!-- 日志仅在wifi网络下发送，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_ONLY_WIFI"
+            android:value="false" />
+
+        <activity
+            android:name=".LogoActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".control.BluetoothChatService" >
+            <intent-filter>
+                <action android:name="edu.minggo.chat.control.BluetoothChatService" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name=".database.MyContentProvider"
+            android:authorities="edu.minggo.chat.database.MyContentProvider" />
+
+        <activity android:name=".ui.TencentWeiboActivity" />
+        <!-- android:scheme和android:host的值和Constants中配置的保持一致，回调将 执行此Activity -->
+        <activity
+            android:name=".ui.PrepareRequestTokenActivity"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="callback"
+                    android:scheme="x-oauthflow" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.TencentWeiboBoundActivity" />
+        <activity android:name=".ui.ChattingMessageImageActivity" />
+        <activity
+            android:name=".ui.GameShakeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".ui.ExitFromPersonInfoActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".ui.ExitFromSettingsActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".ui.GameFiveTopRightDialog"
+            android:theme="@style/MyDialogStyleTop" />
+        <activity
+            android:name=".ui.MainTopRightDialog"
+            android:theme="@style/MyDialogStyleTop" />
+        <activity
+            android:name=".ui.MainTabActivity"
+            android:theme="@style/Anim_style2"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.ExitActivity"
+            android:theme="@style/LoadingDialogStyle" />
+        <activity
+            android:name=".ui.ChattingActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.MyGalleryDetailActivity" />
+        <activity android:name=".ui.GameFiveChessActivity" />
+        <activity android:name=".ui.GameIceCreamActivity" />
+        <activity android:name=".ui.GameStoneScissorsClothActivity" />
+        <activity android:name=".ui.GameCrazyLottery" />
+        <activity android:name=".ui.PersonalInfoSettingAcitivity" />
+        <activity android:name=".ui.PersonalInforAcitivity" />
+        <activity
+            android:name=".ui.PersonalPortraitActivity"
+            android:theme="@style/HeadScale" />
+        <activity android:name=".ui.BluetoothChatActivity" />
+        <activity android:name=".ui.PersonnelLocation" />
+        <activity android:name=".ui.MyGalleryActivity" />
+        <activity android:name=".ui.AppAboutActivity" />
+        <activity android:name=".ui.MyphotoAddActivity" />
+        <activity
+            android:name=".ui.DeviceDetectDialogActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".ui.LoadingActivity"
+            android:theme="@style/LoadingDialogStyle" />
+        <activity
+            android:name=".ui.WelcomeActivity"
+            android:theme="@style/notitle" />
+        <activity
+            android:name=".ui.ModifyMyInformationActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.DeviceListActivity"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ui.DeviceRequestActivity"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ui.SexSelectActivity"
+            android:theme="@style/dialog" />
+        <activity
+            android:name=".ui.AboutDialogActivity"
+            android:theme="@style/dialog" />
+    </application>
+
+</manifest>

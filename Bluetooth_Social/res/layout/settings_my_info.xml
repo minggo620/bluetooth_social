@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+  			android:layout_height="fill_parent" android:background="#eee">
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#eee"
+        android:orientation="vertical" >
+       
+        <RelativeLayout 
+  			android:layout_width="fill_parent"
+  			android:layout_height="45dp"
+  			android:id="@+id/title" 
+  			android:background="@drawable/title_bar"
+  			android:gravity="center_vertical"  >
+      		<TextView android:text="个人信息" android:textSize="20sp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffff" android:layout_centerVertical="true" android:layout_centerHorizontal="true"></TextView>
+      		<Button android:background="@drawable/title_btn_back"
+	android:text="返回" android:id="@+id/myinfo_bt_back"
+	android:layout_width="75dp" android:textColor="#fff"
+	android:layout_height="wrap_content" android:textSize="15dp"
+	android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"></Button> 
+		</RelativeLayout>
+		   
+		<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    		xmlns:tools="http://schemas.android.com/tools"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:scrollbarStyle="outsideOverlay" 
+    		 >
+        	<LinearLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="vertical" 
+            	
+            	>
+           
+            	<RelativeLayout   
+            			android:id="@+id/myinfo_portrait_v_setting"   				    
+            			android:layout_width="fill_parent"
+            			android:layout_height="80dp"
+            			android:layout_marginTop="14dp"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_single_item" >
+						<ImageView android:src="@drawable/mm_submenu"
+							android:id="@+id/menu" android:scaleType="matrix"
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							android:layout_centerVertical="true" android:layout_alignParentRight="true"></ImageView>
+						<TextView android:padding="8dp" android:text="头像" android:textSize="15sp" android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#000" android:layout_centerVertical="true" android:layout_alignParentLeft="true"></TextView>
+						<RelativeLayout android:layout_height="60dp"
+							android:layout_width="60dp" android:id="@+id/myinf_now_v_portrait"
+							android:layout_centerVertical="true" android:layout_toLeftOf="@+id/menu"
+							android:layout_marginRight="16dp" android:background="@drawable/photo_bg_style">
+							<ImageView android:src="@drawable/xiaohei" android:id="@+id/setting_iv_portrait"
+							android:layout_height="70dp" android:layout_width="70dp"
+							android:background="@drawable/photo_bg_style" android:scaleType="fitXY"
+							android:layout_centerVertical="true" android:layout_centerHorizontal="true"></ImageView>
+							
+						</RelativeLayout>      					
+      				</RelativeLayout>
+      				
+            		<RelativeLayout
+            			android:id="@+id/myinfo_name_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:layout_marginTop="22dp"
+            			android:gravity="center_vertical"
+            			android:background="@drawable/preference_first_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="名字"
+        					android:textSize="15sp"		
+							android:textColor="#000" android:id="@+id/textView2"/>
+            			<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:clickable="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView2"/>
+            			<TextView 
+            				android:text="未填写" android:id="@+id/my_infor_name"
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							android:layout_alignBaseline="@+id/textView2"
+							android:layout_alignBottom="@+id/textView2" android:layout_toLeftOf="@+id/imageView2"></TextView>      					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_age_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="年龄"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_age" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_sex_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="性别"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_sex" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_tel_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="电话"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_tel" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_province_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="地区"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_province" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_email_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="E-Mail"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_email" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_interest_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="兴趣爱好"
+        					android:textSize="15sp"		
+							android:textColor="#000" />      
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView4"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_interesting" android:layout_marginTop="10dp"
+								android:layout_height="wrap_content" android:layout_width="wrap_content"
+								android:layout_alignTop="@+id/imageView4" android:layout_toLeftOf="@+id/imageView4"></TextView> 					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_loginname_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_last_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="登录名"
+        					android:textSize="15sp"		
+							android:textColor="#000" /> 
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView3"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_loginname"
+							android:layout_marginTop="10dp" 
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							android:layout_alignTop="@+id/imageView3" android:layout_toLeftOf="@+id/imageView3"></TextView>  
+        					    					
+      				</RelativeLayout>
+      				
+      				<RelativeLayout
+      					android:id="@+id/myinfo_introduce_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:layout_marginTop="14dp"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:background="@drawable/preference_first_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="自我介绍"
+        					android:textSize="15sp"		
+							android:textColor="#000" android:id="@+id/textView3"/>
+            			<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView5"/>
+            			<TextView android:text="未填写" android:id="@+id/my_infor_introduced"
+						android:layout_height="wrap_content" android:layout_width="wrap_content"
+						android:layout_alignBaseline="@+id/textView3"
+						android:layout_alignBottom="@+id/textView3" android:layout_toLeftOf="@+id/imageView5"/>      					
+      				</RelativeLayout>
+      				<RelativeLayout
+      					android:id="@+id/myinfo_personality_v_setting" 
+            			android:layout_width="fill_parent"
+            			android:layout_height="wrap_content"
+            			android:gravity="center_vertical"
+            			android:clickable="true"
+            			android:layout_marginBottom="20dp"
+            			android:background="@drawable/preference_last_item" >
+            			<TextView
+        					android:layout_width="wrap_content" 
+        					android:layout_height="wrap_content"
+        					android:padding="8dp" 
+        					android:text="个性签名"
+        					android:textSize="15sp"		
+							android:textColor="#000" android:id="@+id/textView4"/> 
+						<ImageView
+            				android:layout_width="wrap_content"
+        					android:layout_height="wrap_content"        	     	
+        					android:scaleType="matrix"
+        					android:layout_centerVertical="true"
+        					android:layout_alignParentRight="true"
+        					android:src="@drawable/mm_submenu" android:id="@+id/imageView6"/>
+						<TextView android:text="未填写" android:id="@+id/my_infor_personallity" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignBaseline="@+id/textView4" android:layout_alignBottom="@+id/textView4" android:layout_toLeftOf="@+id/imageView6"></TextView>      					
+      				</RelativeLayout>
+      				
+      				<!--   ***********************************************************************   -->
+      				<!--   ***********************************************************************   -->     	
+        	
+        	</LinearLayout>
+    	</ScrollView>
+	</LinearLayout>
+	<FrameLayout 
+			android:layout_width="300dp" 
+			android:background="#00ffffff" 
+			android:layout_height="250dp" 
+			android:id="@+id/flPic" 
+			android:visibility="gone"
+			android:layout_centerHorizontal="true" 
+			android:layout_centerVertical="true"
+			>
+			<ImageView 
+				android:layout_gravity="center" 
+				android:layout_height="fill_parent" 
+				android:background="@drawable/image_background" 
+				android:layout_margin="8dp" 
+				android:layout_width="fill_parent" 
+				android:src="@drawable/app_icon" 
+				android:id="@+id/ivImage"/>
+			<ImageView 
+				android:layout_gravity="right" 
+				android:layout_height="35dp" 
+				android:layout_width="35dp" 
+				android:src="@drawable/del_pic" 
+				android:id="@+id/ivDelPic"/>
+		</FrameLayout>
+</RelativeLayout>

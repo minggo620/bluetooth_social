@@ -1,0 +1,20 @@
+<RelativeLayout android:id="@+id/FrameLayout01"
+	android:layout_width="fill_parent" android:layout_height="75px"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/myphoto_title_text"
+		android:layout_height="45dip" android:textColor="@color/white"
+		android:textSize="19dip" android:text="@string/record_myphoto_text"
+		android:layout_width="fill_parent" android:background="@drawable/tittle_bg"
+		android:gravity="center" />
+	<Button android:layout_gravity="left" android:textColor="@color/white"
+		android:id="@+id/myphoto_record_bt_left" android:layout_height="40dip"
+		android:textSize="14dip" android:background="@drawable/title_btn_back"
+		android:layout_width="70dip" android:text="@string/tittle_back"></Button>
+	<Button android:id="@+id/myphoto_record_save_bt"
+		android:layout_height="40dp" android:background="@drawable/myphoto_record_savebt_xml"
+		android:text="@string/record_myphoto_save" android:layout_width="65dp"
+		android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+		android:textColor="@color/white"
+		android:layout_marginRight="17dp"></Button>
+
+</RelativeLayout>

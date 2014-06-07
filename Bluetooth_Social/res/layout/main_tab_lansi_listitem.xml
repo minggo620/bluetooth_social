@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:background="#eee" android:orientation="vertical">
+	<!-- android:clickable="true"android:onClick="startchat" -->
+	<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/mm_listitem"
+            android:id="@+id/forHeigh0"
+             >
+            <ImageView
+                android:id="@+id/head"
+                android:layout_width="55dp"
+		        android:layout_height="55dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:src="@drawable/xiaohei" 
+                
+                />
+            <TextView
+            	android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/head"
+                android:padding="7dp"
+                android:text="小黑"
+                android:textColor="#000" />
+            <TextView
+                android:id="@+id/message_lasttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="7dp"
+                android:text="下午  2:00"
+                android:textColor="#666" />
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/head"
+                android:layout_alignParentBottom="true"
+                android:padding="7dp"
+                android:text="加油...."
+                android:textColor="#666" android:id="@+id/last_message"/>
+			 <ImageView android:id="@+id/ivItemV"
+				android:visibility="visible" android:layout_width="wrap_content"
+				android:src="@drawable/v" android:saveEnabled="true"
+				android:layout_height="wrap_content" android:layout_alignBottom="@+id/head"
+				android:layout_toLeftOf="@+id/last_message"></ImageView>
+        </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+    <RelativeLayout 
+        android:id="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_bar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:text="登录"
+           />
+        <Button android:id="@+id/title_bt_right" android:text="注册"
+		android:background="@drawable/title_btn_right"  android:textSize="14sp"
+		android:textColor="#fff"
+		android:layout_width="75dp" android:layout_height="45dp"
+		android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+	<EditText 
+	    android:id="@+id/user"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/login_top_layout"
+	    android:textColor="#000"
+	    android:textSize="15sp"
+	    android:layout_marginTop="25dp"
+	    android:layout_marginLeft="20dp"
+	    android:layout_marginRight="20dp"
+	    android:singleLine="true"
+	    android:background="@drawable/login_editbox"
+	    android:hint="请输入账号"/>
+	<EditText 
+	    android:id="@+id/password"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/user"
+	    android:textColor="#000"
+	    android:textSize="15sp"
+	    android:layout_marginTop="25dp"
+	    android:layout_marginLeft="20dp"
+	    android:layout_marginRight="20dp"
+	    android:background="@drawable/login_editbox"
+	    android:password="true"
+	    android:singleLine="true"
+	    android:hint="请输入密码"/>
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="20dp"
+	    android:layout_below="@+id/password"
+	    android:id="@+id/relativeLayout1">
+	    <Button
+	        android:id="@+id/forget_passwd" 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="21dp"
+	        android:layout_marginTop="5dp"
+	        android:text="忘记密码?"
+	        android:textSize="16sp"
+	        android:textColor="#00f"
+	        android:background="#0000"
+	        />
+	     <Button 
+	        android:id="@+id/loginButton"
+	        android:layout_width="90dp"
+	        android:layout_height="40dp"
+	        android:layout_marginRight="20dp"
+	        android:layout_alignParentRight="true"
+	        android:text="登录"
+	        android:background="@drawable/btn_style_green"
+	        android:textColor="#ffffff"
+	        android:textSize="18sp"
+	        />
+	</RelativeLayout>
+	<TextView android:paddingLeft="0dip" android:drawableTop="@drawable/switchuser_divider"
+	android:textSize="16dip" android:text="@string/news" android:textColor="#7b797b"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:layout_below="@+id/relativeLayout1" android:layout_alignRight="@+id/password"
+	android:layout_alignLeft="@+id/password" android:id="@+id/textView1"></TextView>
+	<ListView
+		android:background="@drawable/user_list_xml"
+		android:id="@+id/userlist" android:layout_gravity="center_horizontal"
+		android:layout_width="290dip" android:layout_height="wrap_content" android:drawSelectorOnTop="false" 
+		android:cacheColorHint="#00000000" android:divider="@drawable/divider_horizontal_timeline" 
+		android:dividerHeight="1.0dip" android:fastScrollEnabled="false" 
+		android:layout_below="@+id/textView1" 
+		android:layout_alignLeft="@+id/textView1" 
+		android:layout_alignRight="@+id/textView1"/>
+</RelativeLayout>

@@ -1,0 +1,549 @@
+											《蓝牙局域网社交软件实现过程》
+	
+	
+	一.实现的主要框架:
+	   1.控制整个程序的服务在BluetoothChatService.java中实现。
+	   2.实现蓝牙基本交流活动流程在BluetoothChatActivity.java中实现。
+	   3.实现蓝牙通信名片的记录的通信录在 PersonContact.java中实现。
+	   4.实现蓝牙甩色子或五子棋游戏在SimpleGame.java中实现。
+	   5.实现蓝牙数据存储在MyContentProvider.java中实现。
+	二.服务以其他的活动的交流过程：
+	   1.每个活动都添加到Service中便于ui的反馈更新。
+	   2.每个活动中需要中某种处理，先生成任务Task，添加到Service中去。
+	   3.Service中进行Task的处理，处理后需要反馈给ui的结果通过Handler处理Message。
+	   4.在处理Message的方法中拿到之前添加的活动Activity，调用refresh()方法。
+	三.项目实现过程的问题和解决方法
+	   1.参考SDK中的蓝牙操作，想写成自己的框架遇到secure和insecure方法连接的时候出现
+	   09-04 20:02:00.945: INFO/System.out(9461): android.bluetooth.BluetoothServerSocket@40533d50====tmp
+	   09-04 20:02:00.960: INFO/System.out(9461): android.bluetooth.BluetoothServerSocket@40535108====tmp
+	   09-04 20:02:00.960: INFO/System.out(9461): android.bluetooth.BluetoothServerSocket@40533d50====mmServerSocket
+	   09-04 20:02:00.960: INFO/System.out(9461): android.bluetooth.BluetoothServerSocket@40535108====mmServerSocket
+	   	连续的设备socket生成。一开始secure连接不能连接，后来这是代码格式化后可能产生的错误在（）里边的参数换到第二行
+	 	中去了，后边把其中一个参数回到上一行就行了。再后来测试完原来的代码也是会产生两个socket。
+	  
+	   2.改变后的框架，主页面的右上角没有提示，信息发送与接受没有提示。
+	             解决的方法：在原来的SDK中Handler改成一个refresh（Object...param）重新返回一个没有改变过的massage，再同样
+	             方法去操作message，对应的finanl 常量做相应的修改。
+	
+	   3.退出项目服务没有杀死。
+	             解决的方法：在退出的方法中添加System.exit(0);即可。
+	 
+	   4.当home重新回到页面后调用onResume()当前的连接就中断了。
+	   	 解决的方法：主要是对登录的用户没有进行处理，在BluetoothChatActivity.java中onStart()判断到
+	   	 服务没有存在（也就是说没有用户登录记录下来），把BluetoothChatService.java的serviceExist添加用户就行。
+	 
+	   5.当有设备有请求的时候，被请求的设备没有提示就连接了。并且尝试用对话提示，但是在AcceptThrea中报错
+	           说“不能在Thread中进行Handler的生成。context而已，但是就是强制停止了。
+	  
+	   6.inputstream的read方法如果一开始没有读完的话，下次在读前边的已读的不会再有。
+	   	 is.read(buffer,0,8);下次读的时候还是从0开始is.read(buffer,0,bytes);
+	 
+	   7.图片接收到端的outputstream以-1或>0判断流是否读写完整，但是一直在循环，读到手机上的图片只有在1M左右。
+	             考虑是1.采用apache的jar包操作byte[]数组问题，2.输出端的write方法一下write出来可能样1M传送。
+	  
+	   8.登录的logo一出现的animation是没有标题的，以为在OnCreate方法上取消标题栏就可以，其实要在AndroidManifest.xml
+	   	   application中定义一个android:theme="@style/notitle"如下
+	   	   <style name="notitle">
+				<item name="android:windowNoTitle">true</item>
+		   </style>
+	  
+	   9.要设置一个按钮的接触效果，在background中引用一个xml文件专门是触碰操作的如下：
+			<selector
+			  xmlns:android="http://schemas.android.com/apk/res/android">
+			    <item android:state_focused="true" android:state_enabled="true" android:state_pressed="false" android:drawable="@drawable/chat_edit_focused" />
+			    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/chat_edit_normal" />
+			    <item android:state_enabled="true" android:state_selected="true" android:drawable="@drawable/chat_edit_focused" />
+			    <item android:state_enabled="true" android:state_selected="false" android:drawable="@drawable/chat_edit_normal" />
+			    <item android:drawable="@drawable/chat_edit_normal" />
+			</selector>
+		
+		10.为了更新ui可以用handler，外加实现接口定义刷新方法更好些。需要的是从不同的activity或service中获取new 出的需要更新ui的activity
+			这样可以用单例设计模式解决。
+			现在new 出的对象存放在list中需要用的时候根据名字取出。
+			public static Activity getActivitybyName(String name) {
+				for (Activity ac : allActivity) {
+					if (ac.getClass().getName().indexOf(name) >= 0) {
+						return ac;
+					}
+				}
+				return null;
+			}
+	 	11.第一次启动蓝牙的时候总是程序强制关闭，原因是其中的onResult中的case执行完后没有break；
+	    
+	    12.去掉listView选中时的橙色在listView中添加如下语句：
+	    	android:listSelector="@color/beige"
+	   
+	    13.添加信息接收时的声音，播放asset中的音频文件:
+	    	AssetFileDescriptor afd = asm.openFd(filename);
+			MediaPlayer player = new MediaPlayer();
+			player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
+			afd.getLength());
+			player.prepare();
+			player.start();
+			}
+	   14.流转图片，获取res资源图片
+	   		Bitmap pic = BitmapFactory.decodeFile("c:/abc.jpg");
+		
+			Drawable d = this.getResources().getDrawable(R.drawable.icon);
+		
+			BitmapDrawable bd = (BitmapDrawable) d;
+
+			Bitmap bm = bd.getBitmap();
+			
+			InputStream is = (InputStream) msg.obj; //获取图片
+			
+			BitmapDrawable a = new BitmapDrawable(is);
+	   
+	   	15.当adapter中的item的样式改变后，之前的样式也跟着改变，想办法让他之前的不改变。
+	   		一。用了一种很简单的方法，得到的信息放在一个ArrayList a中，每个信息发送或接受记录在另外一个ArrayList b中
+	   		在getView方法中先判断b.get(position)判断是发送或者接受再选定ListView的item的样式。
+	   		二。用缓存，这个大概使用ViewHolder实现，现在不做实现。
+	   		
+	   	16.登录过的用户记录下来，再次登录就不用输入功能，登录过的用户列表在登录列表下边。
+	   
+	   	17.在Activity中内部类别用getApplicationContext()获取一个context，获取不到。
+	   	
+	   	18.当要使用自己定义的ListView的java文件，那就要在配置文件中的尖括号上加上自己的包名和类名，就是完整路径
+	   		<edu.minggo.chat.util.MyScrollListView	
+	   	
+	   	19.在EditView中想默认几个文字，比如说“搜索”，但是不会影响后台代码的对文字的监听的设置
+	   		android:hint="搜索"
+	   	
+	   	20.动态更新ListView是，还需要及时对其中的EditView输入，所以要更新后要获取焦点
+	   		view.requestFocus();
+	   		但是已更新就获取对于第一次View的出现，点击时，输入法不会出现。所以要设定一个flag点击后为可连续点击标识符。
+	   		同样EditView有文字输入出现删除文字图，没有文字的时候删除文字图片消失。
+	   		同样设置一个标志有何没有。
+	   	
+	   	21.回退键功能设定
+	   	   1. 如果想要在程序里写一个Button来实现返回键的功能，只需执行
+
+			onKeyDown(KeyEvent.KEYCODE_BACK, null); 
+
+		   2. 如果想要按下返回键时附加执行一些代码，可以写在这里
+
+			@Override
+			public boolean onKeyDown(int keyCode, KeyEvent event) { 
+			   if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) { 
+			       // Do something. 
+			       return true; 
+			   } 
+			   return super.onKeyDown(keyCode, event); 
+			} 
+	   	 
+	   	 22.ListView中滑动时候默认是有黑色的，去掉黑色的方法是：
+	   	 	android:cacheColorHint="#00000000"
+	   	 	ListView中发Item中默认是橙色，去掉橙色的方法是：
+	   	 	selector中的pressed设置中设置自己需要的颜色。
+	   	 	9图片一套图片的绘制的时候，延伸的方向长度要保持一直，以免做背景的时候影响排版。  	
+	   	 	android:divider="@drawable/divider_horizontal_timeline" 设置间隔图案
+	   	 	
+	   	 23.向数据库出入数据的时候语句UserTable.USER_LOGINNAME+"=MINGGO"是错误的
+	   	 	报的错误是没有MINGGO这个列，应该改成UserTable.USER_LOGINNAME+"='MINGGO'"
+	   		
+	   	 24.在一个Adapter中用context启动另外一个Activity时候报的错误：
+	   	 	android.util.AndroidRuntimeException: Calling startActivity() from outside of an Activity  
+	   	 	context requires the FLAG_ACTIVITY_NEW_TASK flag. Is this really what you want?
+	   	 	这个时候需要对intent进行设定不是用Context的startActivity()不是Activity中的startActiity(),
+	   	 	Activity继承类Context，在Activity中用startActivity没事但是在
+	   	 	一个普通的java类的时候就用对intent进行设置为如下：
+	   	 	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+	   	 	
+	   	 25.根据Id获取一个组件的时候转化的类型一定要是对应的类型，不然会报错，其中一种是：
+	   	 	Unable to start activity ComponentInfo{edu.minggo.chat/edu.minggo.chat.
+	   	 	ui.ModifyMyInfoActivity}: java.lang.ClassCastException: android.widget.RelativeLayout
+	   	 	
+	   	 26.对话类型的Activity Float在屏幕的时候有两个问题要处理
+	   	 	1.黑色的边框去掉
+	   	 	  (1)先写一个style 主要在background设置
+	   	 	  	 <style name="dialog" parent="@android:style/Theme.Dialog">
+					<item name="android:windowFrame">@null</item>
+					<item name="android:windowIsFloating">true</item>
+					<item name="android:windowIsTranslucent">false</item>
+					<item name="android:windowNoTitle">true</item>
+					<item name="android:background">@color/touming</item>
+					<item name="android:windowBackground">@color/touming</item>
+					<item name="android:backgroundDimEnabled">false</item>
+				</style>
+	   		  (2)在AndroidManifest.xml说明用法这个style
+	   		  	<activity android:name=".ui.SexSelectActivity"
+                  android:theme="@style/dialog"/>
+            2.对话出现后，周围的颜色设置半透明或者是透明
+	           (1). WindowManager.LayoutParams lp=this.getWindow().getAttributes();   
+			        lp.dimAmount=0.7f;   
+			        this.getWindow().setAttributes(lp);   
+			        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); //透明就不要这句
+		   	   (2).	<item name="android:backgroundDimEnabled">true</item>
+	   	27. 设置输入为数字
+	   		代码：editContent.setInputType(InputType.TYPE_CLASS_NUMBER);
+	   		 配置：android:digits="1234567890"
+	   	
+	   	28.dialog对话框的点击周围消失
+			public boolean onTouchEvent(MotionEvent event) {
+			dismiss();
+			return super.onTouchEvent(event);
+			}
+	   	29.生成文件
+	   		String SavePath = getSDCardPath()+"/PrintScreenDemo/ScreenImage"; 
+            File path = new File(SavePath); //并不是能够生产文件在指定的位置，而是根据位置读取文件  
+            String filepath = SavePath + "/Screen_"+mPrintNum+".png";   
+            File file = new File(filepath);   
+            if(!path.exists()){   
+                path.mkdirs();   
+            }   
+            if (!file.exists()) {   
+                file.createNewFile();   
+            }   
+	   	30.现在相册中从本地获取的照片只是获取它的路径，并没有复制到/BlueChatImag/userPic/gallery
+	   	         以后再做到复制到一个相同的路径下。
+	   	
+	 四.重新构造ui交互风格。2013-1-29
+	    31.“通信录”的模块和“蓝星“模块设置成可滑动模块，但不需要弹性滑动。
+	    32.现在的主页面的呈现是用到ViewPage不是以前的TabHost不是一个tab点击一个中间呈现一个activity。
+	   	33.重新编译安装程序的时候偶尔出现不明代码错误提示，而且点击跳转到其他项目中去。
+	   	        问题原因
+	   	              ①手机安装不同软件但是其中的包或者类名相同，当然项目都是存在eclipse中安装过去的。
+	   	              ②在编译安装程序的时候没有反应，又点击编译安装。
+	   	    解决方法
+	   	             ①现在eclipse中clean一下重新编译安装。
+	   	             ②卸载手机的软件重新安装，把貌似相关联的软件卸载。
+	   	34.布局文件发现一种很奇怪的现象。
+	   	       在scrollView中布局一种listView，其中listview的高度设置成wrap——content并不能真实数据生成的
+	   	        时候高度是填充的内容高度。解决的方法：
+	   	       View view =LayoutInflater.from(context).inflate(R.layout.main_tab_address_listitem, null);
+				int layout_hiegh = view.findViewById(R.id.forHeigh).getLayoutParams().height;
+				addressList.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, (friendlist.size()+1)*(layout_hiegh+2)));
+		       获取listView然后设置layout的参数就行。
+		35.打开输入法软件下边的菜单也跟着上来，但是原来的微信软件不会，暂时没有解决。
+	   	        解决方法：
+	   	        android:windowSoftInputMode="adjustPan"这个是在manifest.xml文件的activity中配置就可以。
+	   	        但是要注意的是，如果在代码中编写  
+	   	        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); 
+	   	        那就会有影响到配置文件，配置文件的所有的配置只要是代码重写后都是按照代码优先性执行。
+	   	           
+	   	
+	   	36.通讯录的右边的字母导航菜单的实现和问题的解决
+	   	        进过改进后通讯录不需要用到scrollview实现了，只用listview但是不是死板的用listview，而是充分利用
+	   	   listview自带的headview做搜素的头。
+	   	        但是出现了一个转折点的问题：
+	   	   java.lang.ClassCastException: android.widget.HeaderViewListAdapter
+	   	   listview.getAdapter()得到的并不是自定义的adapter，而是android.widget.HeaderViewListAdapter。
+	   	        那就无法转型成SectionIndexer。
+	   	        ①先看看HeaderViewListAdapter里边是什么东西
+	   	         new HeaderViewListAdapter(headerViewInfos, footerViewInfos, adapter);
+	   	     	 查看它的解释才知道构造函数的中的adapter值得是自定义好的adapter。
+	   	        ②那就看如何拿到这个adapter。
+	   	        sectionIndexter = (SectionIndexer) ((HeaderViewListAdapter)_list.getAdapter()).getWrappedAdapter();  
+	   	                     其中的getWrappedAdapter()方法就是自己绑定的方法。
+	   	        就这样既不会影响到自己定义的adapter又影响到slidebar的定义，headview又得到了充分利用。
+	   	37.使用listview.setOnItemClickListener和listview.setOnItemLongClickListener只能点击headview才有反应，解决后
+	   		原因是在配置文件中设置了onclick="true"(主要是简单写定onclick的方法就不需要在代码中写onclickListenner了)
+	   	38.对于google提供的汉语拼音操作包，在经过java.util排序之后返回的是一个数组，跟传到adapter中的list直接对应的关系
+	   		到呈现数据没问题，但是点击item的时候是找不到真正对应的内容，解决的方法是：
+	   		在排序前得到的username[]的每一项添加".n"其中n代表是排序前的第几位。排序后再截取相应的内容。
+	   		public void initData(){
+				username = new String[friendlist.size()];
+				for(int i = 0;i<friendlist.size();i++){
+					username[i] = friendlist.get(i).getUsername()+"."+i;
+				}
+				Arrays.sort(username, new PinyinComparator());
+			}
+			String n = username[i].subString(username[i].lastIndexOf(".")+1);
+			String username = username[i].subString(0,username[i].lastIndexOf("."));
+			那么就可以对n转化成int类型，在list中找到对应的数据。
+	   	39.代码启动软键盘
+	   	 	//启动activity时不自动弹出软键盘
+       		// getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN); 
+        40.在传输对象的使用需要将对象串行化。
+           	①将类继承串行化
+           	②在intent中传输
+           	  	Intent it = new Intent();
+				Bundle bd = new Bundle();
+				bd.putSerializable("user", (User) addressAdapter.getItem(position-1));
+				it.putExtra("user", bd);
+				it.setClass(MainTabActivity.this, PersonalInforAcitivity.class);
+				MainTabActivity.this.startActivity(it); 
+			③获取串行化对象将其转化成原来的对象
+			   Intent it = getIntent();
+        	   User user = (User) it.getBundleExtra("user").get("user");
+	   	
+	   	41.调用手机自带的相机
+	   	        ①照完直接生产图片不作处理。
+	   	        mypicPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/BlueChatImag/userPic/mypicture.jpg";
+
+				File imageFile = new File(mypicPath);
+                if(!imageFile.exists()){//其实是不写照完像之后也会生成
+                	try {
+						imageFile.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+                }
+	   	        Uri imageFileUri = Uri.fromFile(imageFile);
+				Intent i = new Intent("android.media.action.IMAGE_CAPTURE"); 
+				i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
+			②拍完照先不存储照片，做一定的处理
+			    Intent it = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			    startActivityForResult(it,GET_PHOTO_FROM_CARMERA);
+			    
+			    在OnActivityResult方法中获取照片数据。
+			    Bundle bd = (Bundle)data.getExtras();
+			    Bitmap pic = bd.get("data");
+			    FileOutputStream fout = new FileOutputStream(picPath);
+			    try{
+			    	pic.compress(Bitmap.CompressFormat.JPEG,100,fout);
+			    }catch(FileNotFoundException e){
+			    	e.printStackTrace();
+			    }finally{
+					fout.flush();
+					fout.close();			    		
+			    }
+		42.sqlite倒序查询
+		   Cursor cursor = db.query(MyPhoto.MyPhotoTable.TABLE_NAME, null, 
+		   				MyPhoto.MyPhotoTable.USER_NAME+"=?", 
+		   				new String[]{BluetoothChatService.nowuser.getLoginname()}, null,
+		   				 null,MyPhotoTable.PHOTO_TIME+" desc");    
+		43.表情列表中ui设置弄了大半天，两个发现
+				①.layout的background设置为图片，该layout中的layout的background就很难对齐，如果是颜色就
+				比较容易。
+				②weight标签在均衡三个textView每个就会咱的比重就使用的，简单点就是长宽是一样的。    
+			    
+	   	
+	   	44.如果是图片控件并设置了by的xml属性，起到点击作用就要写clickable="true"
+	   	45.gridLayout的每个item点击默认是橙色，要改变其颜色不能在item中改变，而是在
+	   	    android:listSelector="@drawable/chatting_smiley_by_item_xml"
+	   	46.录音的模块中弹出录音dialog监听说话的声音大小，产生波动效果
+	   		需要多线程执行边录音，边用handler处理音量大小ui效果
+		   	private class ObtainDecibelThread extends Thread {
+			private volatile boolean running = true;
+			public void exit() {
+				running = false;
+			}
+			@Override
+			public void run() {
+				while (running) {
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					if (recorder == null || !running) {
+						break;
+					}
+					int x = recorder.getMaxAmplitude();
+					if (x != 0) {
+						int f = (int) (10 * Math.log(x) / Math.log(10));
+						if (f < 26)
+							volumeHandler.sendEmptyMessage(0);
+						else if (f < 32)
+							volumeHandler.sendEmptyMessage(1);
+						else if (f < 38)
+							volumeHandler.sendEmptyMessage(2);
+						else if (f < 43)
+							volumeHandler.sendEmptyMessage(3);
+						else if (f < 48)
+							volumeHandler.sendEmptyMessage(4);
+						else if (f < 53)
+							volumeHandler.sendEmptyMessage(5);
+						else
+							volumeHandler.sendEmptyMessage(6);
+					}
+				 }
+			  }
+		  }
+	   	47.启用一直启用不了录音媒体，最后是发现没有设置媒体权限。
+	   	48.在EditText添加图片
+		   	private void setFace(int faceTitle, int faceImg) {
+	
+			int start = contentet.getSelectionStart();
+			Spannable ss = contentet.getText().insert(start, "[" + faceTitle + "]");
+			Drawable d = getResources().getDrawable(faceImg);
+			d.setBounds(0, 0, 30, 30);
+			ImageSpan span = new ImageSpan(d, faceTitle + ".gif",
+					ImageSpan.ALIGN_BASELINE);
+			ss.setSpan(span, start, start + ("[" + faceTitle + "]").length(),
+					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			
+			}
+	   49.实现对Editext内容删除
+	   	  public final KeyEvent keyEventDown = new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_DEL);
+	   	  contentet.onKeyDown(KeyEvent.KEYCODE_DEL, keyEventDown);
+	   	
+	   50.对录音按钮无法判断移出按钮事件，试过KeyEvent中的几个常量都是不行。（以后完善）	
+	五.重构蓝牙socket链接和信息传输技术。
+	   51.以前用的是随便生产的uuid起得蓝牙服务,现在是启用国际标准的串口spp服务。
+	   /**
+		 * 这个uuid很特别
+		 * 00001101-0000-1000-8000-00805F9B34FB(国际标准串口服务)
+		 * fa87c0d0-afac-11de-8a39-0800200c9a66（安全连接，不知道是不是）
+		 * 8ce255c0-200a-11e0-ac64-0800200c9a66(非安全连接，不知道是不是)
+		 */
+		private static final UUID MY_UUID_SECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+		private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+	   	BluetoothServerSocket mmServerSocket=mAdapter.listenUsingRfcommWithServiceRecord(NAME_SECURE, MY_UUID_SECURE);
+	   	
+	   	52.以前文件信息都是在while中没有出来
+	   	   while((bytes=mmipsm.read(buffer,0,byte)))!=-1){
+	   	   		os.write(buffer,bytes);
+	   	   }
+	   	   在socket的长连接通讯中，上边while的条件不会=-1只有断开socket或不在长连接中才行。
+	   	   解决的方法：
+	   	        信息多加一个报文头从客户端先计算好文件的大小放在报文中传输，到服务端解析出来后
+	   	   while(len<fileLen){
+	   	        bytes=mmipsm.read(buffer,0,byte));
+	   	        os.write(buffer,bytes);
+	   	        len+=bytes;
+	   	   }
+	   	53.如果定义类一个extends application 的类，在activity 中想获取当前的application强转化
+	   	        该类，那么AndroidManifest.xml中的application的标签说明是那个类。
+	   	   <!-- 定义了application必要这个 -->
+	   	   <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	   	
+	   	54.用第三方的东西就是不爽，完全不爽，简直就是土匪，连土匪都不如。
+	   	        问题：java.lang.UnsatisfiedLinkError: initClass（ 百度地图so和jar问题）
+	   	        网上这么说:
+	   	        “百度提供的jar和so必须要放到libs而不是lib目录” 
+				百度地图提供Android API第三方库库文件包含有，描述如下：
+				目录 libs （包含）{ baidumapapi.jar 文件夹armeabi（包含 { libBMapApiEngine_v1_3_3.so } } 
+				这样的两个文件，且存在于两级目录。真心不明白，百度开发平台（设计者）为何要这样做，
+				“仅限制使用者需要” 将这样放置jar和so文件（如上libs目录），
+				否则容易出现问题如LZ所说的异常“java.lang.UnsatisfiedLinkError: initClass”，
+				但有时又不出问题，没深究！
+		       但是还是很容易出错，最好不要用eclipse操作。手动的但armeabi/libBMapApiEngine_v1_3_3.so复制
+		       到文件夹中，不用eclipse导入成Reference Libraries。（三个小时多小时啊，三个多小时可以改变世界了，你妹。）
+		       
+	   	55.播放声音时，ui的波形波动
+	   	   hdl.post(new Runnable() {
+				int i = 0;
+				@Override
+				public void run() {
+					if (isRepeat1==true) {
+						if (i==0) {
+							((ImageButton)v).setImageResource(R.drawable.chatfrom_group_voice_playing_f1);
+						}else if(i==1){
+							((ImageButton)v).setImageResource(R.drawable.chatfrom_group_voice_playing_f2);
+						}else if(i==3){
+							((ImageButton)v).setImageResource(R.drawable.chatfrom_group_voice_playing_f3);
+							i=-1;
+						}
+						i++;
+						hdl.postDelayed(this,250);
+					}else{
+						isRepeat1 = true;
+						((ImageButton)v).setImageResource(R.drawable.chatfrom_voice_playing);
+					}
+				}
+			});     
+	   	56.腾讯微博发送文本信息中间不能有空格，有时间去修改OAuthUtil字符串转化。解决方法如下:
+	   	   while(it.hasNext()){
+				String key = it.next();
+				String value = addtionalParams.get(key);
+				value = value.replaceAll(" ", "monggi");
+				value = URLEncoder.encode(value);
+				value = value.replaceAll("monggi", "%20");
+				httpParameters.put(key, value);
+			}
+	   	57.甩色子游戏的色子旋转逐渐缓慢制作
+	   		hdl.post(new Runnable(){
+					@Override
+					public void run(){
+						if (i<=60) {
+							i+=j;
+							if (j==0) {
+								seZiiv.setImageResource(R.drawable.dice_action_0);
+							}else if (j==1) {
+								seZiiv.setImageResource(R.drawable.dice_action_1);
+								
+							}else if (j==2) {
+								seZiiv.setImageResource(R.drawable.dice_action_2);
+								
+							}else if (j==3) {
+								seZiiv.setImageResource(R.drawable.dice_action_3);
+								j=-1;
+							}
+							j++;
+							//让色子逐渐变慢
+							if (i<35) {
+								hdl.postDelayed(this,100);
+							}else if (35<=i&&i<58) {
+								hdl.postDelayed(this,100+i);
+							}else{
+								hdl.postDelayed(this,160);
+							}
+						}else{
+							i=0;
+							seZiiv.setImageResource(sourceIds[(int)(Math.random()*5)]);
+							hdl.removeCallbacks(this);
+						}
+					}
+				});	
+	   	58.有些信息不想写到数据库，不如说聊天背景、是否绑定微博
+	   		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+	   		final Editor edit = prefs.edit();
+			edit.putString(OAuth.OAUTH_TOKEN, consumer.getToken());
+			edit.putString(OAuth.OAUTH_TOKEN_SECRET, consumer.getTokenSecret());
+			edit.commit();
+			String token = prefs.getString(OAuth.OAUTH_TOKEN, "");
+			String secret = prefs.getString(OAuth.OAUTH_TOKEN_SECRET, "");
+	六、至今为止还有需要完善的内容如下：
+	    1.聊天的信息模型有了但是不没有写成到关系型数据库中。
+	    2.从消息记录页面到聊天页面没有参数传递，主要是链接设备的编号。
+	    3.消息记录页面的右上角菜单没有做功能帅选和实现
+	    4.通讯录中的右上角的添加按钮没有做实现。
+	    5.娱乐部分的五子棋联机模式玩家的先后出棋，和颜色没有自能设定。
+	    6.聊天背景设定没有做(先下载背景图，SharePreference设置)。
+	    7.删除消息全部记录没有做(sqlite操作增多)。
+	    8.查看发送图片消息没有做(一个dialog显示)。
+	    9.发送名片没有做(图片和字符串发送[图片的压缩])。
+	    10.自定义表情发送没有做(gif图片显示)。
+	    11.相册的照片一致容易内存溢出，对图片的剪裁。
+	    12.登陆的logo没有修改背景。
+	    13.apk和数据库打包发布。
+		14.发文本信息是乱码。
+		大方面：图片的剪裁，消息数据库，apk和数据库打包，gif显示。		
+	59.先对图片相关的问题处理
+		Uri originalUri = data.getData();
+		Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(resolver,originalUri);
+		bitmap1 = ClippingPicture.Resize(bitmap1);
+		ClippingPicture.saveTalkBitmap(bitmap1);
+		像这样调用本地相册无法改变保存的文件大小。
+	60.启动照相机要拍两张才返回
+		/***拍完照再做处理**/(2次)
+		Intent intent1 = new Intent("android.media.action.IMAGE_CAPTURE");
+		startActivityForResult(intent1, GET_PHOTO_FROM_CARMERA);
+		((Activity) ChattingActivity.this).startActivityForResult(intent1,GET_PHOTO_FROM_CARMERA);     
+		/**拍完照片就存储**/(1次)
+		File imageFile = new File(mypicPath);
+		Uri imageFileUri = Uri.fromFile(imageFile);
+		Intent i = new Intent("android.media.action.IMAGE_CAPTURE"); 
+		i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
+		((Activity) MyGalleryActivity.this).startActivityForResult(i,GET_PHOTO_FROM_CARMERA);     
+		
+		解决后：
+		发现两次的地方有启动了两次，所以要认真写	
+				
+	61.去本地照片得到的数据时bitmap是不能用一般的压缩方法压缩。
+		Uri originalUri = data.getData();
+		if (originalUri != null) {
+			String[] projection = {MediaStore.Images.Media.DATA};
+			Cursor cursor = managedQuery(originalUri, projection, null, null, null);
+			int i = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+			cursor.moveToFirst();
+			String img_path = cursor.getString(i);
+			System.out.println(img_path+"<---------真正的图片路径");
+			
+			if (new File(img_path).length()>1024*512) {
+				BitmapFactory.Options options = new BitmapFactory.Options();
+				options.inJustDecodeBounds = false;
+				options.inSampleSize = 4;
+				Bitmap bitmap1 = BitmapFactory.decodeFile(img_path,options);
+			}
+			下边的哪两种也可以拿到bitmap
+			//Bitmap bitmap1 = BitmapFactory.decodeStream(resolver.openInputStream(originalUri));
+			//Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+			System.out.println(bitmap1.getHeight()+"==后==="+bitmap1.getWidth());*/
+		}		
+				
+	62.图片的剪裁内存溢出问题得到了有效的解决，并且图片的放大和倒影效果使用出来了。(ClippingPicture类和ImageUtil实现)
+	        接下来的消息类型的数据库使用了。		
+	   		

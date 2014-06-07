@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/lightgray"
+  >
+    <include android:id="@+id/modify_title" layout="@layout/custom_title_modify_myinfo"></include>
+    <EditText android:id="@+id/modify_content"
+		android:background="@drawable/modify_editor_xml"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="18dip"
+		android:textColor="@color/black"
+		android:visibility="gone"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:singleLine="true"  />
+		<ListView 	
+		android:visibility="gone"
+		android:id="@+id/email_auto_text"
+		android:background="@drawable/email_auto_bg_normal"
+		android:divider="@drawable/divider_horizontal_timeline" 
+		android:layout_width="fill_parent"
+		android:layout_gravity="center_horizontal"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:cacheColorHint="@color/touming"
+		/>
+		<!-- android:visibility="gone" -->
+		<RelativeLayout
+				android:visibility="gone"
+				android:id="@+id/longContent"
+				android:padding="15dp"
+				android:layout_height="150dp"
+				android:layout_width="fill_parent">
+				<EditText
+				android:background="@drawable/modify_editor_xml"
+				android:singleLine="false"
+				android:textColor="@color/black"
+			    android:id="@+id/modify_long_content"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:capitalize="sentences"
+			    android:imeOptions="actionDone"
+			    android:gravity="top|left"
+			    android:isScrollContainer="true"
+			    android:layout_margin="3px"/>
+				<LinearLayout 
+					android:id="@+id/text_limit_unit" 
+					android:layout_width="wrap_content" 
+					android:background="@drawable/bg_delwords" 
+					android:gravity="center" 
+					android:clickable="true" 
+					android:focusable="true" 
+					android:layout_height="wrap_content" 
+					android:layout_alignParentBottom="true" 
+					android:layout_alignParentRight="true">
+					<TextView 
+						android:layout_marginRight="5px" 
+						android:textColor="#333" 
+						android:layout_width="wrap_content" 
+						android:layout_height="wrap_content" 
+						android:text="140" 
+						android:id="@+id/tv_text_limit"/>
+					<ImageView 
+						android:layout_width="wrap_content" 
+						android:layout_height="wrap_content" 
+						android:src="@drawable/icon_delwords"/>
+				</LinearLayout>
+				
+			</RelativeLayout>
+		<RelativeLayout 
+			android:layout_width="match_parent" 
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:gravity="center_horizontal">
+		<ImageView android:id="@+id/imageView1"
+			 android:layout_width="wrap_content" 
+			 android:layout_toLeftOf="@+id/modify_tips" 
+			 android:layout_alignParentTop="true"
+			  android:src="@drawable/modify_smiley" 
+			  android:layout_height="wrap_content"/>
+		<TextView android:textSize="16dip" 
+			android:layout_height="wrap_content" 
+			android:layout_alignBottom="@+id/imageView1" 
+			android:textColor="@color/black" 
+			android:layout_alignParentRight="true" 
+			android:layout_width="wrap_content" 
+			android:gravity="center_horizontal" 
+			android:text="@string/modify_name_tips" 
+			android:id="@+id/modify_tips"/>
+		</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+	<RelativeLayout 
+		android:layout_width="match_parent"
+		android:id="@+id/mygallery_layout_head"
+		 android:background="@drawable/myphoto_head_xml" android:layout_height="379dp">
+		<RelativeLayout android:layout_height="290dp"
+			android:layout_width="match_parent" android:id="@+id/relativeLayout1"
+			android:layout_alignParentLeft="true"
+			android:background="@drawable/mywife1" >
+			<!-- <ImageView android:id="@+id/myphoto_head_pic"
+				android:layout_height="match_parent" android:layout_width="fill_parent"
+				android:src="@drawable/mywife1" android:layout_centerVertical="true"
+				android:layout_centerHorizontal="true"></ImageView> -->
+		</RelativeLayout>
+		<RelativeLayout android:layout_width="75dp"
+			android:layout_height="75dp" android:background="@drawable/corners"
+			android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+			android:layout_marginRight="28dp" android:layout_marginTop="260dp"
+			android:id="@+id/relativeLayout2">
+			<ImageView android:layout_width="73dp" android:scaleType="fitXY"
+				android:id="@+id/mygallery_iv_portrait" android:layout_height="73dp"
+				android:src="@drawable/app_icon" android:layout_centerVertical="true"
+				android:layout_centerHorizontal="true"></ImageView>
+		</RelativeLayout>
+		<TextView android:textStyle="bold" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="16dip"
+			android:id="@+id/mygallery_tv_myname" android:text="minggo"
+			android:layout_alignBottom="@+id/relativeLayout1"
+			android:layout_toLeftOf="@+id/relativeLayout2" android:textColor="#fff"
+			android:layout_marginRight="16dp"></TextView>
+		<RelativeLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/relativeLayout3"
+			android:layout_below="@+id/relativeLayout2" android:gravity="center_horizontal"
+			android:layout_alignRight="@+id/relativeLayout2" android:layout_toRightOf="@+id/mygallery_tv_myname">
+		<TextView android:text="运动" android:textColor="@color/gray"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:id="@+id/mygallery_tv_motto" android:layout_alignParentTop="true"
+			android:gravity="center_horizontal"
+			android:layout_alignParentRight="true"/>	
+			</RelativeLayout>
+	</RelativeLayout>
+	<RelativeLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/mygallery_layout_middle"
+		android:background="@color/white" android:paddingLeft="5dip"
+		android:paddingTop="10dip" android:paddingRight="5dip"
+		android:paddingBottom="10dip">
+
+		<TextView android:text="今天" android:layout_width="match_parent"
+			android:textColor="@color/black" android:textStyle="bold"
+			android:textSize="30dip" android:layout_height="100dp"
+			android:layout_alignBottom="@+id/linearLayout1" />
+		<RelativeLayout android:background="@drawable/personactivity_takephoto_icon_bg"
+			android:orientation="horizontal" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:layout_alignParentTop="true"
+			android:layout_alignParentLeft="true" android:layout_marginLeft="90dp"
+			android:id="@+id/linearLayout1">
+			<ImageView android:background="@drawable/myphoto_middlepic_xml"
+				android:id="@+id/mygallery_iv_take_photo" android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:layout_centerVertical="true"
+				android:layout_centerHorizontal="true" />
+		</RelativeLayout>
+	</RelativeLayout>
+</LinearLayout>

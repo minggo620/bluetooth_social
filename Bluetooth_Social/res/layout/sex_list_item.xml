@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+	android:orientation="horizontal" 
+	android:tag="sex_list" 
+	android:id="@+id/sex_select_layout"
+	android:background="@drawable/sex_item_xml" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout 
+    	android:layout_marginRight="3.0dip" 
+    	android:layout_width="fill_parent" 
+    	android:layout_weight="1.0"
+    	android:gravity="center_horizontal" 
+    	android:layout_height="60dp">
+        <TextView android:layout_width="wrap_content" android:id="@+id/sex_tv" android:layout_height="wrap_content" android:textSize="18dip" android:text="男" android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:layout_marginLeft="15dp"></TextView>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sex_select" android:src="@drawable/radio_unchecked" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:layout_marginRight="15dp"></ImageView>
+    </RelativeLayout>
+</LinearLayout>
+     

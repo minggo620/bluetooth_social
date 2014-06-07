@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@color/sex_select_color" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	>
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="45dp" android:id="@+id/title"
+		android:background="@drawable/title_bar" android:gravity="center_vertical">
+		<Button android:layout_gravity="left" android:textColor="@color/white" android:id="@+id/mygallery_bt_left" android:layout_height="40dip" android:textSize="14dip" android:background="@drawable/title_btn_back" android:layout_width="70dip" android:text="@string/tittle_back"></Button>
+		<TextView android:text="相册" android:textColor="#ffffff" android:textSize="20sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_centerHorizontal="true"></TextView>
+	</RelativeLayout>
+	
+	<edu.minggo.chat.util.BounceListView 
+		android:scrollbars="none"
+		android:layout_height="wrap_content" 
+		android:divider="@color/white" 
+		android:background="@color/white" 
+		android:id="@+id/mygallery_listview" 
+		android:dividerHeight="1.0dip" 
+		android:layout_width="fill_parent" 
+		android:cacheColorHint="#00000000" 
+		android:paddingTop="0dp" android:layout_marginTop="0dp"
+		android:layout_alignParentLeft="true" android:layout_alignParentRight="true" />
+</LinearLayout>

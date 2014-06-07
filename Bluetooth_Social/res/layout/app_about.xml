@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@color/sex_select_color" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:weightSum="1">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="45dp" android:id="@+id/title"
+		android:background="@drawable/title_bar" android:gravity="center_vertical">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="关于LanSi"
+			android:layout_centerInParent="true" android:textSize="20sp"
+			android:textColor="#ffffff" android:id="@+id/textView1" />
+		<Button android:background="@drawable/title_btn_back"
+	android:text="返回" android:id="@+id/about_head_backbt"
+	android:layout_width="75dp" android:textColor="#fff"
+	android:layout_height="wrap_content" android:textSize="15dp"
+	android:layout_centerVertical="true" android:layout_alignParentLeft="true"></Button>
+
+	</RelativeLayout>
+	<ImageView android:layout_height="70dp" android:layout_width="70dp"
+		android:src="@drawable/app_icon" android:id="@+id/imageView1"
+		android:layout_below="@+id/title" android:layout_centerHorizontal="true"
+		android:layout_marginTop="17dp"></ImageView>
+	<TextView android:text="蓝星" android:layout_height="wrap_content"
+		android:id="@+id/app_name" android:layout_width="wrap_content"
+		android:layout_below="@+id/imageView1"
+		android:layout_centerHorizontal="true" android:textSize="16dip"
+		android:layout_marginBottom="30dp" />
+	<!-- android:visibility="gone" -->
+	<LinearLayout android:layout_height="wrap_content"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/app_name"
+		android:layout_alignParentLeft="true" android:layout_marginTop="32dp"
+		android:id="@+id/linearLayout1">
+		<RelativeLayout android:id="@+id/setting_v_personalinfo"
+			android:gravity="center_vertical" android:layout_marginTop="14dp"
+			android:background="@drawable/preference_first_item" android:clickable="true"
+			android:layout_height="wrap_content" android:layout_width="fill_parent">
+			<TextView android:layout_height="wrap_content"
+				android:textColor="#000" android:textSize="17sp" android:text="版本"
+				android:padding="8dp" android:layout_width="wrap_content"
+				android:id="@+id/textView2"></TextView>
+			<TextView android:layout_height="wrap_content" android:text="2.1.0"
+				android:id="@+id/setting_tv_bound" android:layout_width="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"></TextView>
+		</RelativeLayout>
+		<RelativeLayout android:gravity="center_vertical" android:id="@+id/about_v_functions"
+			android:background="@drawable/preference_item" android:layout_height="wrap_content"
+			android:clickable="true" android:layout_width="fill_parent">
+			<TextView android:layout_height="wrap_content"
+				android:textColor="#000" android:textSize="17sp" android:text="功能介绍"
+				android:padding="8dp" android:layout_width="wrap_content"></TextView>
+			<ImageView android:scaleType="matrix" android:src="@drawable/mm_submenu"
+				android:layout_height="wrap_content" android:id="@+id/imageView4"
+				android:layout_centerVertical="true" android:layout_width="wrap_content"
+				android:layout_alignParentRight="true"></ImageView>
+		</RelativeLayout>
+		<RelativeLayout android:gravity="center_vertical" android:id="@+id/about_v_check"
+			android:background="@drawable/preference_item" android:layout_height="wrap_content"
+			android:clickable="true" android:layout_width="fill_parent">
+			<TextView android:layout_height="wrap_content"
+				android:textColor="#000" android:textSize="17sp" android:text="检查新版本"
+				android:padding="8dp" android:layout_width="wrap_content"></TextView>
+			<ImageView android:scaleType="matrix" android:src="@drawable/mm_submenu"
+				android:layout_height="wrap_content" android:id="@+id/imageView4"
+				android:layout_centerVertical="true" android:layout_width="wrap_content"
+				android:layout_alignParentRight="true"></ImageView>
+		</RelativeLayout>
+		<RelativeLayout android:gravity="center_vertical" android:id="@+id/about_v_welcome"
+			android:background="@drawable/preference_last_item"
+			android:layout_height="wrap_content" android:clickable="true"
+			android:layout_width="fill_parent">
+			<TextView android:layout_height="wrap_content"
+				android:textColor="#000" android:textSize="17sp" android:text="欢迎页"
+				android:padding="8dp" android:layout_width="wrap_content"></TextView>
+			<ImageView android:scaleType="matrix" android:src="@drawable/mm_submenu"
+				android:layout_height="wrap_content" android:id="@+id/imageView3"
+				android:layout_centerVertical="true" android:layout_width="wrap_content"
+				android:layout_alignParentRight="true"></ImageView>
+		</RelativeLayout>
+	</LinearLayout>
+	<TextView android:layout_height="wrap_content" android:text="minggo版权所有 \nCopyright(c)2012-2013 Minggo\nAll Rights Reserved"
+	android:id="@+id/copyright_text" android:layout_width="wrap_content" android:textColor="#000"
+	android:layout_below="@+id/linearLayout1" android:gravity="center_horizontal"
+	android:layout_centerHorizontal="true" android:layout_marginTop="52dp"></TextView>
+</RelativeLayout>

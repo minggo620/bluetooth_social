@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+	android:orientation="horizontal" 
+	android:tag="about_list" 
+	android:id="@+id/about_select_layout"
+	android:background="@drawable/about_item_xml" 
+	android:layout_width="fill_parent" 
+	android:layout_height="40dp"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout 
+    	android:layout_gravity="center_vertical"
+    	android:layout_marginRight="3.0dip" 
+    	android:layout_width="fill_parent" 
+    	android:layout_weight="1.0" 
+    	android:layout_height="60dp" >
+        <ImageView 
+        android:id="@+id/imageView1" 
+        android:layout_height="wrap_content" 
+        android:layout_width="wrap_content" android:src="@drawable/about_left_icon" android:layout_centerVertical="true" android:layout_alignParentLeft="true" android:layout_marginLeft="30dp"></ImageView>
+        <TextView android:layout_height="wrap_content" android:id="@+id/about_tv" android:layout_width="wrap_content" android:textSize="17dip" android:text="发信息" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:layout_marginRight="40dp"></TextView>
+    </RelativeLayout>
+</LinearLayout>
+     

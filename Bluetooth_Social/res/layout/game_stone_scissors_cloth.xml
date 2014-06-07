@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameStoneScissorsClothActivity" >
+	 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:background="@drawable/a2_normal_red"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="RED\nWINS\n\n\n\n\n"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.33"
+            android:background="@drawable/a3_normal_yellow"
+            android:text="NO\nWINER\n\n\n\n\n"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.33"
+            android:background="@drawable/a1_normal_blue"
+            android:text="BLUE\nWINS\n\n\n\n\n"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/game_left_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="0.34"
+            android:background="@drawable/a00_redbt"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="RED\nWINS"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/game_mid_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="0.33"
+            android:background="@drawable/a00_yellowbt"
+            android:text="NO\nWINER"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/game_right_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:background="@drawable/a00_bluebt"
+            android:text="BLUE\nWINS"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="1000ms"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/stage_word_mdpi" 
+        />
+	<ImageView
+            android:id="@+id/game_guest_a_iv"
+            android:scaleType="fitXY"
+           
+            android:layout_width="280dp"
+            android:layout_height="130dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-135dp"
+            android:src="@drawable/a09_hand020" 
+            
+            />
+	<ImageView
+            android:id="@+id/game_gesture_b_iv"
+            android:layout_alignParentRight="true"
+            android:layout_width="280dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            android:layout_marginRight="-150dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/a09_hand02" />
+	<RelativeLayout 
+  			android:layout_width="fill_parent"
+  			android:layout_height="45dp"
+  			android:id="@+id/title" 
+  			android:background="@drawable/title_bar"
+  			android:gravity="center_vertical"  >  
+  		<Button android:layout_gravity="left" android:textColor="@color/white"
+			android:id="@+id/game_bt_left" android:layout_height="40dip"
+			android:textSize="14dip" android:background="@drawable/title_btn_back"
+			android:gravity="center"
+			android:layout_width="70dip" android:text="@string/tittle_back"></Button>
+      		<TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:text="猜拳"
+        		android:layout_centerInParent="true"
+        		android:textSize="20sp"		
+				android:textColor="#ffffff" />      
+		</RelativeLayout>
+</RelativeLayout>

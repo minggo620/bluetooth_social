@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/white">
+	 <RelativeLayout 
+  			android:layout_width="fill_parent"
+  			android:layout_height="45dp"
+  			android:id="@+id/title" 
+  			android:background="@drawable/title_bar"
+  			android:gravity="center_vertical"  >  
+  		<Button android:layout_gravity="left" android:textColor="@color/white"
+			android:id="@+id/game_five_bt_left" android:layout_height="40dip"
+			android:textSize="14dip" android:background="@drawable/title_btn_back"
+			android:layout_width="70dip" android:text="@string/tittle_back"></Button>
+      		<TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:text="五子棋"
+        		android:layout_centerInParent="true"
+        		android:textSize="20sp"		
+				android:textColor="#ffffff" /> 
+			<ImageButton 
+			    android:id="@+id/game_five_right_btn"
+			    android:layout_width="67dp" 
+        		android:layout_height="wrap_content"
+        		android:layout_alignParentRight="true" 
+        		android:layout_centerVertical="true"
+        		android:layout_marginRight="5dp"
+        		android:src="@drawable/title_btn_function"
+				android:background="@drawable/title_btn_right"
+				android:onClick="btnmainright"
+			    />      
+		</RelativeLayout>
+		
+	<edu.minggo.game.five.Chessboard android:id="@+id/five" android:layout_marginTop="45dp" android:layout_width="match_parent"
+		android:layout_height="match_parent" tileSize="24"/>
+	
+	<RelativeLayout
+		android:layout_width="match_parent" android:layout_height="match_parent">
+		<TextView
+			android:id="@+id/text"
+			android:text="@string/mode_ready"
+			android:visibility="visible"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:textColor="#ff0000"
+			android:textSize="24sp"
+			/>
+	</RelativeLayout>
+</RelativeLayout >

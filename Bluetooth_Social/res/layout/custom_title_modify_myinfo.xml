@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="75px"
+    android:gravity="center_vertical"
+    android:background="@drawable/title_bar"
+  >
+  <TextView android:id="@+id/modify_title_text"
+      android:layout_centerHorizontal="true"
+      android:ellipsize="end"
+      android:singleLine="true"
+      android:textColor="#fff"
+      android:textSize="17dip"
+      android:layout_width="wrap_content"
+      android:layout_height="50dip"
+      android:text="@string/modify_title"
+      android:layout_alignBottom="@+id/loginButton"
+      android:paddingTop="12dip"
+      />
+      <Button android:text="@string/modify_save"
+	android:layout_height="35dip" android:background="@drawable/title_btn_right"
+	android:textSize="12dip" android:layout_width="70dip" android:id="@+id/modify_save_button"
+	android:textColor="@color/white" android:layout_alignBottom="@+id/modify_title_text"
+	android:layout_alignParentRight="true" android:layout_alignParentTop="true"></Button>
+      <Button android:text="@string/modify_exit"
+	android:layout_height="35dip" android:background="@drawable/title_btn_back"
+	android:textSize="12dip" android:layout_width="70dip" android:id="@+id/modify_exit_button"
+	android:textColor="@color/white" android:layout_alignParentLeft="true"
+	android:layout_alignParentTop="true" android:layout_alignParentBottom="true"></Button>
+</RelativeLayout>

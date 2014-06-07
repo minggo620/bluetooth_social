@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/title_bar"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="娱乐"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/game_five_v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/add_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/find_more_friend_addfriend_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/add_friend"
+            android:padding="8dp"
+            android:text="五子棋"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/game_chock"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical"
+        android:onClick="btn_shake" >
+
+        <ImageView
+            android:id="@+id/add_friend_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/find_more_friend_shake" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/add_friend_shake"
+            android:padding="8dp"
+            android:text="甩色子"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" />
+    </RelativeLayout>
+	
+    <RelativeLayout
+        android:id="@+id/game_icecream_v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:scaleType="matrix"
+            android:src="@drawable/game_icecream" >
+            
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:padding="8dp"
+            android:text="堆雪糕"
+            android:textColor="#000"
+            android:textSize="17sp" >
+        </TextView>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/game_caiquan_v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:scaleType="matrix"
+            android:src="@drawable/game_caiquan" >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:padding="8dp"
+            android:text="狂猜拳"
+            android:textColor="#000"
+            android:textSize="17sp" >
+        </TextView>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/game_slottery_v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:scaleType="matrix"
+            android:src="@drawable/game_slottery" >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:padding="8dp"
+            android:text="狂摇奖"
+            android:textColor="#000"
+            android:textSize="17sp" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/game_weibo_v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/preference_single_item"
+        android:gravity="center_vertical"
+        android:onClick="btn_shake" >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:scaleType="matrix"
+            android:src="@drawable/weiboicon" >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="matrix"
+            android:src="@drawable/mm_submenu" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/ImageView01"
+            android:padding="8dp"
+            android:text="玩微博"
+            android:textColor="#000"
+            android:textSize="17sp" >
+        </TextView>
+    </RelativeLayout>
+
+</LinearLayout>

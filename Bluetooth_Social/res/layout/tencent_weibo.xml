@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#eee">
+	<RelativeLayout android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<RelativeLayout android:layout_height="45dp"
+			android:gravity="center_vertical" android:layout_width="fill_parent"
+			android:background="@drawable/title_bar" android:id="@+id/title">
+
+			<Button android:textSize="14sp" android:text="返回"
+				android:layout_width="70dp" android:id="@+id/weibo_reback_btn"
+				android:layout_centerVertical="true" android:background="@drawable/title_btn_back"
+				android:textColor="#fff" android:layout_height="wrap_content"></Button>
+			<TextView android:textSize="20sp" android:layout_width="wrap_content"
+				android:text="发表微博" android:textColor="#ffffff"
+				android:layout_centerInParent="true" android:layout_height="wrap_content"></TextView>
+			<ImageButton android:id="@+id/weibo_bt_menu"
+				android:layout_width="67dp" android:layout_marginRight="5dp"
+				android:layout_centerVertical="true" android:src="@drawable/mm_title_btn_menu"
+				android:layout_alignParentRight="true" android:background="@drawable/title_btn_right"
+				android:layout_height="wrap_content"></ImageButton>
+		</RelativeLayout>
+		<RelativeLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:layout_marginTop="80dp">
+			<TextView android:id="@+id/response_code"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="" android:textColor="#FFFFFF" android:typeface="normal" />
+			<RelativeLayout android:id="@+id/cotentId"
+				android:layout_height="150dp" android:layout_width="fill_parent">
+				<EditText android:background="@drawable/modify_editor_xml"
+					android:singleLine="false" android:layout_margin="15dp"
+					android:textColor="@color/black" android:id="@+id/weibo_long_content"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:capitalize="sentences" android:imeOptions="actionDone"
+					android:gravity="top|left" android:isScrollContainer="true"
+					android:hint="给我们一个精彩的微博吧" android:textColorHint="#bbbb" />
+				<LinearLayout android:clickable="true"
+					android:focusable="true" android:background="@drawable/bg_delwords"
+					android:layout_width="wrap_content" android:id="@+id/text_limit_unit"
+					android:layout_height="wrap_content" android:gravity="center"
+					android:layout_alignBottom="@+id/weibo_long_content"
+					android:layout_alignRight="@+id/weibo_long_content">
+					<TextView android:layout_width="wrap_content" android:id="@+id/tv_text_limit"
+						android:layout_marginRight="5px" android:text="120"
+						android:textColor="#333" android:layout_height="wrap_content"></TextView>
+					<ImageView android:layout_width="wrap_content"
+						android:src="@drawable/icon_delwords" android:layout_height="wrap_content"></ImageView>
+				</LinearLayout>
+
+			</RelativeLayout>
+			<Button android:background="@drawable/btn_style_green"
+				android:text="发表" android:id="@+id/sendButtonId"
+				android:layout_width="90dp" android:textColor="#ffffff"
+				android:layout_height="40dp" android:textSize="18sp"
+				android:layout_below="@+id/cotentId"
+				android:layout_alignParentRight="true" android:layout_marginRight="15dp"></Button>
+		</RelativeLayout>
+		<TextView android:id="@+id/textView1" android:text="你的心情很值得回忆哦！"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@+id/title" android:layout_centerHorizontal="true"
+			android:layout_marginTop="20dp" android:textColor="@color/gray"
+			android:textSize="16dp"></TextView>
+		<include android:layout_height="120dp" layout="@layout/share_weibo_progress"
+			android:id="@+id/weibo_sharing_process_v" android:layout_width="120dp"
+			android:layout_below="@+id/textView1"
+			android:layout_centerHorizontal="true" android:layout_marginTop="104dp"></include>
+		<ImageView android:src="@drawable/emoji_359" android:id="@+id/imageView1"
+			android:layout_width="20dp" android:layout_height="20dp"
+			android:layout_alignTop="@+id/textView1" android:layout_toLeftOf="@+id/textView1"></ImageView>
+	</RelativeLayout>
+</LinearLayout>

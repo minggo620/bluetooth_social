@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<RelativeLayout android:gravity="center_vertical"
+		android:layout_width="fill_parent" android:layout_height="45dp"
+		android:background="@drawable/title_bar" android:id="@+id/title"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
+		<Button android:textSize="14dip" android:textColor="@color/white"
+			android:id="@+id/mygallery_bt_left" android:layout_width="70dip"
+			android:background="@drawable/title_btn_back" android:layout_height="40dip"
+			android:text="@string/tittle_back"></Button>
+		<TextView android:text="2013年2月 19:44" android:id="@+id/mygallery_tv_time"
+			android:textColor="#ffffff" android:textSize="16sp"
+			android:layout_width="wrap_content" android:layout_centerHorizontal="true"
+			android:layout_height="wrap_content" android:layout_centerVertical="true"></TextView>
+		<ImageButton android:src="@drawable/mm_title_btn_menu"
+			android:layout_width="67dp" android:id="@+id/mygallery_bt_menue"
+			android:layout_height="wrap_content" android:background="@drawable/title_btn_right"
+			android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+			android:layout_marginRight="5dp"></ImageButton>
+	</RelativeLayout>
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:gravity="center_vertical|center_horizontal"
+		android:background="#000" android:layout_below="@+id/title">
+
+		<ImageView android:id="@+id/mygallery_iv_big_portrait"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:src="@drawable/xiaohei_big" 
+			android:layout_marginTop="60dp" 
+			android:layout_marginBottom="50dp"/>
+		
+	</RelativeLayout>
+	<LinearLayout android:orientation="horizontal"
+	android:gravity="center" android:layout_height="wrap_content"
+	android:layout_width="fill_parent" android:layout_alignParentBottom="true"
+	android:layout_alignParentLeft="true" android:layout_marginBottom="30dp">
+	<Button android:id="@+id/imageview_bigbtn"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:background="@drawable/imagebig_btn"></Button>
+	<Button android:layout_height="wrap_content" android:visibility="invisible"
+		android:layout_width="wrap_content"></Button>
+	<Button android:id="@+id/imageview_smallbtn"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:background="@drawable/imagesmall_btn"></Button>
+	<Button android:layout_height="wrap_content" android:visibility="invisible"
+		android:layout_width="wrap_content"></Button>
+	<Button android:id="@+id/imageview_turnleft"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:background="@drawable/btn_browser_back_1"></Button>
+	<TextView android:text="xs" android:visibility="invisible"
+		android:layout_height="wrap_content" android:textSize="15.0dip"
+		android:layout_width="wrap_content"></TextView>
+	<Button android:id="@+id/imageview_turnright"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:background="@drawable/btn_browser_forward_1"></Button>
+	</LinearLayout>
+</RelativeLayout>
