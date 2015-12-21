@@ -1,4 +1,4 @@
-# bluetooth_social
+# Bluetooth Social
 [![Support](https://img.shields.io/badge/support-Android2.3.3-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
@@ -12,11 +12,11 @@ OK,Let me decript this project.
 ###Think:  
 1.There is little social communication software on Android phone about short distance communication.Though many people in China is lost in WeChat 2013,I thought short distance commication is needed and might be Interesting.  
 2.Which kind of commcation technology to choose,Wifi or Bluetooth? I choosed Bluetooth because it needn't a huge server in backgroud and very flexible in each Android phone every where.  
-3.So,the main content of project there many idea,such as text message ,voice message communication and playing lite game.
+3.So,the main content of project there many idea,such as text message ,voice message communication and playing lite game.  
 4.Technology,Socket Tcp translation,Five-in-a-row game algorithm。Of course,I need understand Adnroid development.
 
 ###process
-today is 2015-12-21,I can't remmeber the detail of developing process,just left that I formulate message packge type payed a lot time and change many times.Fortunately I succeed fix mang bugs finally and added some games in it .
+Today is 2015-12-21,I can't remmeber the detail of developing process,just left that I formulate message packge type payed a lot time and change many times.Fortunately I succeed fix mang bugs finally and added some games in it .
 
 ###Run screenshot
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/9TRD5NtGv.Fhjh9Ve0..ek2rCsXwYcNIY2NEC56rB7c!/b/dPYjc5dXDQAA&bo=4AEgAwAAAAADB.A!&rf=viewer_4)
@@ -33,5 +33,5 @@ today is 2015-12-21,I can't remmeber the detail of developing process,just left 
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/LVVjj3vBFJ1ze7XmIKYDb*udUefrhAq*Bt9H*o7xBJ8!/b/dJyVbpe6DQAA&bo=4AEgAwAAAAADAOc!&rf=viewer_4)
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/r3aLsOZmsJqLtYF56mSqw*BsxOOP8mKPhuZXR3i.u6k!/b/dCLgZpdLEAAA&bo=4AEgAwAAAAADAOc!&rf=viewer_4)
 
-Oh... it reminds me some thing I do many hard to developing software。
+###Oh... it reminds me some thing I do many hard to developing software。
 
