@@ -15,10 +15,10 @@ OK,Let me decript this project.
 3.So,the main content of project there many idea,such as text message ,voice message communication and playing lite game.  
 4.Technology,Socket Tcp translation,Five-in-a-row game algorithm。Of course,I need understand Adnroid development.
 
-###process
+###process:
 Today is 2015-12-21,I can't remmeber the detail of developing process,just left that I formulate message packge type payed a lot time and change many times.Fortunately I succeed fix mang bugs finally and added some games in it .
 
-###Run screenshot
+###Run screenshot:
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/9TRD5NtGv.Fhjh9Ve0..ek2rCsXwYcNIY2NEC56rB7c!/b/dPYjc5dXDQAA&bo=4AEgAwAAAAADB.A!&rf=viewer_4)
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/8z6vagqBt.E5UQ7G7QHmJJkki1NL1oF5.KAWC4POMa4!/b/dH4ecJcRDwAA&bo=4AEgAwAAAAADAOc!&rf=viewer_4)
 ![image](http://b254.photo.store.qq.com/psb?/V11EYO7L0pkstJ/U6gW4hhVKHuT.YlG.kggRALcZHZai*aSLc53BXMDxb0!/b/dGMvc5cuEAAA&bo=4AEgAwAAAAADAOc!&rf=viewer_4)
